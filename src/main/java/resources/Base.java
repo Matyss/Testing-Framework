@@ -28,7 +28,7 @@ public class Base {
                 driver = new ChromeDriver();
                 break;
             case "firefox":
-                System.setProperty("webdriver.firefox.marionette", "C:\\Testing\\geckodriver-v0.19.0-win64\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "C:\\Testing\\geckodriver-v0.19.1-win64\\geckodriver.exe");
                 driver = new FirefoxDriver();
                 break;
             case "IE":
