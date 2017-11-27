@@ -1,4 +1,4 @@
-package udemyCourse;
+package resources;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class base {
+public class Base {
 
     public WebDriver driver;
 
     public WebDriver initializeDriver() throws IOException{
 
         Properties browserProps = new Properties();
-        FileInputStream browserConfigFile = new FileInputStream("C:\\Users\\m_szymajda\\IdeaProjects\\completeFramework\\src\\main\\java\\udemyCourse\\browserConfigFile.properties");
+        FileInputStream browserConfigFile = new FileInputStream("C:\\Users\\m_szymajda\\IdeaProjects\\completeFramework\\src\\main\\java\\resources\\browserConfigFile.properties");
 
         browserProps.load(browserConfigFile);
         String browserName = browserProps.getProperty("browser");
