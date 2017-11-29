@@ -1,7 +1,12 @@
 package udemyCourse;
 
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.LandingPage;
 import pageObjects.LoginPage;
@@ -20,6 +25,11 @@ public class HomePage extends Base {
     @Test(priority = 0)
     public void rootPageNavigation() {
         driver.get("http://qaclickacademy.com");
+        LandingPage landingPageElements = PageFactory.initElements(driver, LandingPage.class);
+        //Assertions to test
+        Assert.assertTrue(landingPageElements.landingPageTitle().contains("QA Click Academy"));
+        Assert.assertTrue(landingPageElements.navbar.isDisplayed());
+        Assert.assertEquals(landingPageElements.getNavbarSize(), 7);
     }
 
     @Test(priority = 1)
@@ -28,12 +38,28 @@ public class HomePage extends Base {
         logOnLanding.loginButton.click();
     }
 
-    @Test(priority = 2)
-    public void loginUser() {
+    @Test(priority = 2, dataProvider = "getData")
+    public void loginUser(String userName, String password) {
         LoginPage provideCredentials = PageFactory.initElements(driver, LoginPage.class);
-        provideCredentials.userEmail.sendKeys("acb@gmail.com");
-        provideCredentials.userPassword.sendKeys("somepassword");
+        provideCredentials.userEmail.sendKeys(userName);
+        provideCredentials.userPassword.sendKeys(password);
 
+    }
+
+    @AfterTest
+    public void terminate() {
+        driver.close();
+    }
+
+    @DataProvider
+    public Object[][] getData() {
+
+        Object[][] data = new Object[1][2];
+
+        data[0][0] = "acb@gmail.com";
+        data[0][1] = "somepassword";
+
+        return data;
     }
 
 }
