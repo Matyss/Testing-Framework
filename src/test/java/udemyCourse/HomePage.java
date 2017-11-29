@@ -16,16 +16,20 @@ import java.io.IOException;
 
 public class HomePage extends Base {
 
+    LandingPage landingPageElements;
+    LoginPage loginPageElements;
+
     @BeforeTest
     public void initBrowser() throws IOException {
         driver = initializeDriver();
+        landingPageElements = PageFactory.initElements(driver, LandingPage.class);
+        loginPageElements = PageFactory.initElements(driver, LoginPage.class);
     }
 
 
     @Test(priority = 0)
     public void rootPageNavigation() {
         driver.get("http://qaclickacademy.com");
-        LandingPage landingPageElements = PageFactory.initElements(driver, LandingPage.class);
         //Assertions to test
         Assert.assertTrue(landingPageElements.landingPageTitle().contains("QA Click Academy"));
         Assert.assertTrue(landingPageElements.navbar.isDisplayed());
@@ -34,22 +38,21 @@ public class HomePage extends Base {
 
     @Test(priority = 1)
     public void clickOnLogin() throws IOException {
-        LandingPage logOnLanding = PageFactory.initElements(driver, LandingPage.class);
-        logOnLanding.loginButton.click();
+        Assert.assertTrue(landingPageElements.loginButton.isDisplayed());
+        landingPageElements.loginButton.click();
     }
 
     @Test(priority = 2, dataProvider = "getData")
     public void loginUser(String userName, String password) {
-        LoginPage provideCredentials = PageFactory.initElements(driver, LoginPage.class);
-        provideCredentials.userEmail.sendKeys(userName);
-        provideCredentials.userPassword.sendKeys(password);
-
+        loginPageElements.loginPage_Action(userName, password);
     }
 
     @AfterTest
     public void terminate() {
         driver.close();
     }
+
+
 
     @DataProvider
     public Object[][] getData() {
