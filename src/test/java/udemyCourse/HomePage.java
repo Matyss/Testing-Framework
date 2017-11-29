@@ -1,8 +1,6 @@
 package udemyCourse;
 
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -29,7 +27,7 @@ public class HomePage extends Base {
 
     @Test(priority = 0)
     public void rootPageNavigation() {
-        driver.get("http://qaclickacademy.com");
+        driver.get(rootURL);
         //Assertions to test
         Assert.assertTrue(landingPageElements.landingPageTitle().contains("QA Click Academy"));
         Assert.assertTrue(landingPageElements.navbar.isDisplayed());
