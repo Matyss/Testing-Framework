@@ -1,5 +1,7 @@
 package udemyCourse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -14,6 +16,8 @@ import java.io.IOException;
 
 public class HomePage extends Base {
 
+    public static Logger logs = LogManager.getLogger(Base.class.getName());
+
     LandingPage landingPageElements;
     LoginPage loginPageElements;
 
@@ -22,6 +26,7 @@ public class HomePage extends Base {
         driver = initializeDriver();
         landingPageElements = PageFactory.initElements(driver, LandingPage.class);
         loginPageElements = PageFactory.initElements(driver, LoginPage.class);
+        logs.info("Driver is initialized");
     }
 
 
@@ -30,8 +35,11 @@ public class HomePage extends Base {
         driver.get(rootURL);
         //Assertions to test
         Assert.assertTrue(landingPageElements.landingPageTitle().contains("QA Click Academy"));
+        logs.info("Succesfully navigated to given URL");
+
         Assert.assertTrue(landingPageElements.navbar.isDisplayed());
         Assert.assertEquals(landingPageElements.getNavbarSize(), 7);
+        logs.info("Navbar is displayed, size is confirmed");
     }
 
     @Test(priority = 1)
