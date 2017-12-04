@@ -35,7 +35,7 @@ public class HomePage extends Base {
         driver.get(rootURL);
         //Assertions to test
         Assert.assertTrue(landingPageElements.landingPageTitle().contains("QA Click Academy"));
-        logs.info("Succesfully navigated to given URL");
+        logs.info("Successfully navigated to given URL");
 
         Assert.assertTrue(landingPageElements.navbar.isDisplayed());
         Assert.assertEquals(landingPageElements.getNavbarSize(), 7);
@@ -56,6 +56,9 @@ public class HomePage extends Base {
     @AfterTest
     public void terminate() {
         driver.close();
+
+        //Clear the memory after each test
+        driver = null;
     }
 
 

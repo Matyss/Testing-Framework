@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Base {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     public String rootURL;
 
     //Info method to print browser name
