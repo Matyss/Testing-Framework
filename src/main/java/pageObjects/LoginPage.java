@@ -19,6 +19,7 @@ public class LoginPage {
     @FindBy(how = How.NAME, using = "commit")
     public WebElement loginButton;
 
+
     public void loginPage_Action(String name, String password) {
         userEmail.sendKeys(name);
         userPassword.sendKeys(password);
