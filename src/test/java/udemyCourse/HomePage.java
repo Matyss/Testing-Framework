@@ -51,6 +51,7 @@ public class HomePage extends Base {
     @Test(priority = 2, dataProvider = "getData")
     public void loginUser(String userName, String password) {
         loginPageElements.loginPage_Action(userName, password);
+
     }
 
     @AfterTest
@@ -59,6 +60,7 @@ public class HomePage extends Base {
 
         //Clear the memory after each test
         driver = null;
+        logs.info("==================== END TEST ====================");
     }
 
 

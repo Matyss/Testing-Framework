@@ -1,12 +1,17 @@
 package resources;
 
 //Selenium imports
+import org.apache.logging.log4j.core.util.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.io.FileHandler;
 
 //Utilities
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -72,5 +77,10 @@ public class Base {
 
         return driver;
     }
+
+    public void takeScreenshot(String resultMethod, long endMillis) throws IOException {
+        File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(source, new File("C://Users//m_szymajda//IdeaProjects//completeFramework//"+resultMethod+"_"+endMillis+"_failScreen.png"));
+}
 
 }

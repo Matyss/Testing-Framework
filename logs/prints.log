@@ -1,3 +1,5 @@
-14:03:43.462 [main] INFO  resources.Base - Driver is initialized
-14:03:47.463 [main] INFO  resources.Base - Succesfully navigated to given URL
-14:03:47.581 [main] INFO  resources.Base - Navbar is displayed, size is confirmed
+21:50:14.176 [main] INFO  resources.Base - ==================== END TEST ====================
+21:52:50.187 [main] INFO  resources.Base - Driver is initialized
+21:52:58.438 [main] INFO  resources.Base - Successfully navigated to given URL
+21:52:58.530 [main] INFO  resources.Base - Navbar is displayed, size is confirmed
+21:53:04.770 [main] INFO  resources.Base - ==================== END TEST ====================
