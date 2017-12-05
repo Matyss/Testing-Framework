@@ -1,5 +1,6 @@
-21:50:14.176 [main] INFO  resources.Base - ==================== END TEST ====================
-21:52:50.187 [main] INFO  resources.Base - Driver is initialized
-21:52:58.438 [main] INFO  resources.Base - Successfully navigated to given URL
-21:52:58.530 [main] INFO  resources.Base - Navbar is displayed, size is confirmed
-21:53:04.770 [main] INFO  resources.Base - ==================== END TEST ====================
+22:07:56.862 [main] INFO  resources.Base - Navbar is displayed, size is confirmed
+22:08:02.334 [main] INFO  resources.Base - ==================== END TEST ====================
+22:22:22.574 [main] INFO  resources.Base - Driver is initialized
+22:22:29.096 [main] INFO  resources.Base - Successfully navigated to given URL
+22:22:29.193 [main] INFO  resources.Base - Navbar is displayed, size is confirmed
+22:22:35.231 [main] INFO  resources.Base - ==================== END TEST ====================
